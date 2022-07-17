@@ -7,6 +7,8 @@ import java.util.Objects;
 @Table (name = "users")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column
@@ -61,7 +63,12 @@ public class User {
     }
     @Override
     public String toString() {
-        return String.format("User {id = '%s', name = '%s', lastName = '%s', age = '%d'}", getId(), getName(), getLastName(), getAge());
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
     }
     @Override
     public boolean equals(Object o) {
